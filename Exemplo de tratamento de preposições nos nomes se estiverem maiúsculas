@@ -1,0 +1,4 @@
+    preposicoes = {'De','Da','Do','Dos','Das','E'}
+    ...
+    for dado in dados_view:
+        palavras_formatadas = [palavra if palavra not in preposicoes else palavra.lower() for palavra in palavras]
