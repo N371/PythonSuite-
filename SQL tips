@@ -1,0 +1,9 @@
+select v.SQL_TEXT,
+           v.PARSING_SCHEMA_NAME,
+           v.FIRST_LOAD_TIME,
+           v.DISK_READS,
+           v.ROWS_PROCESSED,
+           v.ELAPSED_TIME,
+           v.service
+      from v$sql v
+where to_date(v.FIRST_LOAD_TIME,'YYYY-MM-DD hh24:mi:ss')>ADD_MONTHS(trunc(sysdate,'MM'),-2) and v.SQL_TEXT like '%SELECT SUBSTR(OBTER_NOME_PF(CD_PESSOA_FISICA), 0, 100) FROM PESSOA_FISICA WHERE CD_PESSOA_FISICA = :B1%';
