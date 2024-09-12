@@ -6,8 +6,8 @@ groupadd fespgroup
 vim etc/passwd
 vim etc/group
 usermod +aG fespgroup fesp
-mkdir /opt/docway
-sudo chown root:fespgroup /opt/docway
+mkdir /opt/fesp
+sudo chown root:fespgroup /opt/fesp
 ls -lh
 cd /etc/ssh/
 vim sshd_config
