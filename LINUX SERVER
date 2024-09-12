@@ -1,4 +1,10 @@
 Configuração de servidor ftp
-adduser docway
-passwd docway
+adduser fesp
+passwd fesp
 defina a senha como : 20F3$P24
+groupadd fespgroup
+vim etc/passwd
+vim etc/group
+usermod +aG fespgroup fesp
+mkdir /opt/docway
+sudo chown root:fespgroup /opt/docway
