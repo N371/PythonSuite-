@@ -1,1 +1,4 @@
 Configuração de servidor ftp
+adduser docway
+passwd docway
+defina a senha como : 20F3$P24
