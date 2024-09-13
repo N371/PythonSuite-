@@ -1,18 +1,21 @@
+
+Observe com cuidado a criação do usuário dentro da pasta correta
+
 Configuração de servidor ftp
-adduser fesp
-passwd fesp
-defina a senha como : 20F3$P24
-groupadd fespgroup
+adduser usuario
+passwd usuario
+defina a senha como : SENHA
+groupadd usuariogroup
 vim etc/passwd
 vim etc/group
-usermod +aG fespgroup fesp
-mkdir /opt/fesp
-sudo chown root:fespgroup /opt/fesp
+usermod +aG usuariogroup fesp
+mkdir /opt/usuario
+sudo chown root:usuariogroup /opt/usuario
 ls -lh
 cd /etc/ssh/
 vim sshd_config
 
-Match Group fespgroup
+Match Group usuariogroup
     ChrootDirectory /opt
     ForceCommand internal-sftp
     AllowTcpFormwarding no
@@ -26,9 +29,8 @@ AuthorizedDeysFile   .ssh/authorized_keys
 
 systemctl restart sshd
 systemctl status sshd
-
 comando de acesso
-sftp fesp@192.168.1.43
+sftp fesp@192.168.100.106
 senha: 20F3$P24
 
 
