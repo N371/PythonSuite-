@@ -71,3 +71,12 @@ senha
 Gato12!Lindo
 token
 sqp_f0ddfc5e781f8806db00deadf722f3339010a020
+
+
+
+para projetos maven:  
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=intranet \
+  -Dsonar.projectName='intranet' \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.token=sqp_f0ddfc5e781f8806db00deadf722f3339010a020
