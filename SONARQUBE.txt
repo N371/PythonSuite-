@@ -80,3 +80,21 @@ mvn clean verify sonar:sonar \
   -Dsonar.projectName='intranet' \
   -Dsonar.host.url=http://localhost:9000 \
   -Dsonar.token=sqp_f0ddfc5e781f8806db00deadf722f3339010a020
+
+
+
+mudando a versão do java do sonar:
+
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.9.0.2155</version>
+        </plugin>
+    </plugins>
+</build>
+
+
+
