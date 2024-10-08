@@ -67,11 +67,11 @@ networks:
 
 
 
+usuario
+main
 senha
 Gato12!Lindo
-token
-
-
+token // este varia com o projeto
 Analyze "vera" 1: sqp_cf52d4fd4dae85a793e625a82d194626ae092b23
 Analyze "unimed-solutions": sqp_4f58bd2baeb3a053ba902e3413363d1613374758
 
@@ -80,32 +80,33 @@ Analyze "unimed-solutions": sqp_4f58bd2baeb3a053ba902e3413363d1613374758
 
 
 para projetos maven:  
-mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=intranet \
-  -Dsonar.projectName='intranet' \
-  -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.token=sqp_f0ddfc5e781f8806db00deadf722f3339010a020
+
+copiei o nome da branch e do projeto
+
+mvn clean verify sonar:sonar   
+-Dsonar.projectKey=vera   
+-Dsonar.projectName='vera'   
+-Dsonar.host.url=http://localhost:9000   
+-Dsonar.token=sqp_cf52d4fd4dae85a793e625a82d194626ae092b23   
+-Dsonar.branch.name=2.45.3_DEV_4605_Reembolso
 
 
-mvn clean verify sonar:sonar \
--Dsonar.projectKey=vera \
--Dsonar.projectName='vera' \
--Dsonar.host.url=http://localhost:9000 \
--Dsonar.token=sqp_cf52d4fd4dae85a793e625a82d194626ae092b23
 
 
 mudando a versão do java do sonar:
 
 
-<build>
-    <plugins>
-        <plugin>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.9.0.2155</version>
-        </plugin>
-    </plugins>
-</build>
+O QUE EU FIZ:
+  CRIEI UMA NOVA IMAGEM PARA O SCANNER  O QUE MUDOU O SCRIPT DO docker-compose.yalm acima.
+- criei um volume dentro do projeto, este volume corre apontando para o sonarscanner
+Vai_Corinthian$ docker run -it -v /home/nelson.correa@unimedsaocarlos.local/2.45.3_DEV_4605_Reembolso/unimed-solutions:/project joebaird/sonarscanner bash
+- crieu um bando de dados dentro do container do postgres, 
+psql -U sonar
+CREATE DATABASE sonarqube;
+\q
+
+
+
 
 
 
