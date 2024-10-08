@@ -86,6 +86,12 @@ mvn clean verify sonar:sonar \
   -Dsonar.token=sqp_f0ddfc5e781f8806db00deadf722f3339010a020
 
 
+mvn clean verify sonar:sonar \
+-Dsonar.projectKey=vera \
+-Dsonar.projectName='vera' \
+-Dsonar.host.url=http://localhost:9000 \
+-Dsonar.token=sqp_cf52d4fd4dae85a793e625a82d194626ae092b23
+
 
 mudando a versão do java do sonar:
 
