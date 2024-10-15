@@ -1,0 +1,19 @@
+COMO FAZER undeploy mesmo com certificado vencido?
+
+
+código:
+  1 #!/bin/bash
+  2 
+  3 FIRST_COLUMN=( $(awk -F"," '(NR>1){print $1}' undeploys.csv) )
+  4 
+  5 for((cont=0;cont<${#FIRST_COLUMN[@]};cont++)); do
+  6    ./asadmin --user=admin --passwordfile=password.txt undeploy ${FIRST_COLUMN[$cont]}
+  7 done
+nome udp.sh
+
+vai ler o arquivo undeploys.csv onde deve ter a lista de undeploys
+
+
+se o certificado estiver vencido não vai fazer
+então precisa mudar o arquivo domain.xml
+
