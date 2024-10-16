@@ -1,0 +1,15 @@
+Configurações de segurança firewall
+sudo ufw status
+Bloqueio de Porta
+sudo ufw allow 8081/tcp
+Desbloquear 
+sudo iptables -A INPUT -p tcp --dport 8081 -j ACCEPT
+Serviço ativo?
+telnet 192.168.1.44 8081 
+ou 
+curl -v 192.168.1.44:8081
+conflito?
+sudo lsof -i :8081
+Adicionar no domain
+<network-listener protocol="http-listener-3" port="8081" name="http-listener-3" thread-pool="http-thread-pool" transport="tcp"></network-listener>
+
